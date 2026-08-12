@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html>
+    <body style="background-image: url(./1000294826.jpg); background-size: cover; font-family: Marker Felt margin: 0; overflow: hidden; height: 100vh;">
+        <div id="welcome" class="window" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <p class="closebutton" style="cursor: pointer; text-align: right; " id="welcomeclose"></p>
+        <h1 style="padding: 4px; margin: 4px; background-color: #000; color: #fff; border-radius: 16px;">Welcome To My OS</h1>
+        <h2> Introduction</h2>
+        <p>This is my first ever web OS. WHich i created with the help of a guide from stardance,<br>i am a passionate 13 year old wanting to build cool projects! </p>
+        <br> <a href="https://www.instagram.com/starthackclub/">Here is the page that started it all(Hack club)</a>
+         <img src="1000294825 (1).jpg" width="100" height="100" alt="description" style="border-radius: 50px; display: inline-block; position: relative; left: 100px"><br>
+         </div>
+         <div id="top" style="position: absolute; width: 100%; display: flex; backdrop-filter: blur(10px); background-color: rgba(37, 150, 190, 0.25); color: #fff; justify-content: space-around; left: 0; bottom: 0; z-index: 20;">
+    <p id="welcomeopen" style="cursor: pointer; margin-left: 10px; padding: 6px; background-color: #a3f6f7 ; border-radius: 12px; color:#000">
+            AJOS
+        </p> 
+        <p id="timeElement" style="margin-right: 12px; padding: 4px; background-color: #a3f6f7; border-radius: 12px; color:#000;">
+            Time
+        </p>
+        <p style="margin-left: 16px; background-color: #a3f6f7; padding: 4px 12px; border-radius: 12px;color:#000;">
+            Plan. Build. Enhance.
+        </p>
+    </div>
+    <div id="desktopApps" style="padding-top: 64px; padding-left: 16px;">
+    <!-- ADDED onclick AND cursor: pointer HERE -->
+    <div class="selected" onclick="handleIconTap(this, document.querySelector('#notes'))" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content; cursor: pointer;">
+        <img src="spiral-empty-notepad-paper-template-office-schoolwork_1017-61262.png" style="width: 78px; height: 78px; border-radius: 12px">
+        <p style="margin: 0px; color: #fff; ">Notes for the smart</p>
+    </div>
+</div>
+ <div id="notes" class="window" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <p class="closebutton" style="cursor: pointer; text-align: right;" id="notesclose"></p>
+        <h1 style="padding: 4px; margin: 4px; background-color: #000; color: #fff; text-align: center; border-radius: 16px;">Notes</h1>
+        <!-- Fixed typography here: 6x to 6px -->
+        <div style="width: 16px; margin-right: 6px; height: 16px;"></div>
+    
+        <!-- EVERYTHING BELOW IS NOW SAFELY INSIDE THE NOTES WINDOW -->
+        <div style="background-color: #fff; margin: 6px; border-radius: 12px; width: 600px; height: 480px; padding: 16px; font-family: Courier; display: flex;">
+        
+        <!-- Sidebar Area (Fixed Width so it never shrinks!) -->
+        <div style="width: 200px; min-width: 200px; margin-right: 16px; display: flex; flex-direction: column;">
+            
+            <!-- NEW NOTE BUTTON -->
+            <button onclick="createNewNote()" style="margin-bottom: 12px; padding: 12px; background-color: #000; color: #fff; border-radius: 12px; cursor: pointer; border: none; font-family: Courier; font-weight: bold;">
+                + New Note
+            </button>
+            
+            <!-- The actual sidebar list container -->
+            <div id="sidebar" style="overflow-y: auto; flex-grow: 1;"></div>
+        </div>
 
-  <body>
-  <h1>Welcome to my OS</h1>
-  <h2>Introduction</h2>
-  <p>Hello world!</p>
-  </body>
+        <!-- Notes Content Area (flex-grow: 1 tells it to fill the remaining space) -->
+        <div id="notesContent" style="overflow-y: scroll; flex-grow: 1;"></div>
+        
+    </div>
 
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+</body>
+    <script>
+        function updateTime() {
+        var ist = new Date().toLocaleString();
+        var timeText = document.querySelector("#timeElement");
+        timeText.innerHTML = ist
+                          }
+         setInterval(updateTime, 1000);
+    </script>
 </html>
